@@ -12,8 +12,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Set permissions for gradlew
-          command: chmod +x gradlew
+          name: Run Gradle Wrapper without chmod
+          command: sh ./gradlew check
       - run:
           name: Install Android SDK components
           command: sdkmanager "platforms;android-33" "build-tools;33.0.0"

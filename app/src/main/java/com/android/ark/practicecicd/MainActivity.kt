@@ -1,15 +1,19 @@
 package com.android.ark.practicecicd
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
 import com.android.ark.practicecicd.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
+import com.microsoft.appcenter.AppCenter
+import com.microsoft.appcenter.analytics.Analytics
+import com.microsoft.appcenter.crashes.Crashes
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +25,11 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        AppCenter.start(
+            application, "d31db659-e295-46ea-a076-3793e38755f2",
+            Analytics::class.java, Crashes::class.java
+        )
 
         setSupportActionBar(binding.toolbar)
 

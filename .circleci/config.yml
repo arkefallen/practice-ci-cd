@@ -4,12 +4,19 @@ version: 2.1
 jobs:
   test-java:
     docker:
-      - image: cimg/openjdk:17.0
+      - image: cimg/android:2023.08
+    environment:
+      ANDROID_HOME: /opt/android/sdk
+      ANDROID_SDK_ROOT: /opt/android/sdk
+      PATH: /opt/android/sdk/platform-tools:/opt/android/sdk/tools:/opt/android/sdk/tools/bin:$PATH
     steps:
       - checkout
       - run:
           name: Set permissions for gradlew
           command: chmod +x gradlew
+      - run:
+          name: Install Android SDK components
+          command: sdkmanager "platforms;android-33" "build-tools;33.0.0"
       - run:
           name: Calculate cache key
           command: |-

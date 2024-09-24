@@ -30,8 +30,8 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
+            Snackbar.make(view, "This is snackbar", Snackbar.LENGTH_LONG)
+                .setAction("Press Me", null)
                 .setAnchorView(R.id.fab).show()
         }
     }
